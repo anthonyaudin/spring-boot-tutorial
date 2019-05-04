@@ -12,3 +12,5 @@ Section 6 - Exception handling
 Section 7 - Using aspect oriented programming
 Section 8 - Securing our application with Spring security
 Section 9 - Testing our application
+
+To run your application, using the command line just go to your project root and run: mvn spring-boot:run
