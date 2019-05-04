@@ -17,7 +17,7 @@ To run your application, using the command line just go to your project root and
 
 Section 2:
 
-To test this section simply use curl to call your enpoints:
+To test this section simply use curl to call your endpoints:
 
 To call basicGet() 
 curl http://localhost:8080
