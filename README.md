@@ -14,3 +14,22 @@ Section 8 - Securing our application with Spring security
 Section 9 - Testing our application
 
 To run your application, using the command line just go to your project root and run: mvn spring-boot:run
+
+Section 2:
+
+To test this section simply use curl to call your enpoints:
+
+To call basicGet() 
+curl http://localhost:8080
+
+To call getWithPathParam(..)
+curl http://localhost:8080/12
+
+To call basicGetWithHeader(..)
+curl -H "name: Foo" http://localhost:8080
+
+To call postWithRequest(..)
+curl -d '{"firstname":"John", "lastname":"Doe"}' -H "Content-Type: application/json" -X POST http://localhost:8080
+
+
+ 
