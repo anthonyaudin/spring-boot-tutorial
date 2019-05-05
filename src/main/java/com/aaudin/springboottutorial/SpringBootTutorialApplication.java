@@ -1,19 +1,27 @@
 package com.aaudin.springboottutorial;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.aaudin.springboottutorial.component.ComponentWithValuesFromConfig;
 import com.aaudin.springboottutorial.service.BeanScopeTesterService;
-import com.aaudin.springboottutorial.service.PetService;
 import com.aaudin.springboottutorial.service.impl.BeanScopeTesterServiceImpl;
-import com.aaudin.springboottutorial.service.impl.CatServiceImpl;
 
 @SpringBootApplication
 public class SpringBootTutorialApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootTutorialApplication.class, args);
+	}
+	
+	//Read property single.value from application.properties
+	@Bean
+	public ComponentWithValuesFromConfig componentWithValuesFromConfig(@Value("${single.value}") String valueFromConfig) {
+		final ComponentWithValuesFromConfig component = new ComponentWithValuesFromConfig();
+		component.setValue(valueFromConfig);
+		return component;
 	}
 	
 	@Bean("beanScopeTesterService1")
@@ -25,11 +33,5 @@ public class SpringBootTutorialApplication {
 	public BeanScopeTesterService beanScopeTesterService2() {
 		return new BeanScopeTesterServiceImpl();
 	}
-	
-	@Bean("catService")
-	public PetService catService() {
-		return new CatServiceImpl();
-	}
-	
 	
 }

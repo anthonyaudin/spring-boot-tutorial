@@ -1,5 +1,7 @@
 package com.aaudin.springboottutorial.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,9 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aaudin.springboottutorial.component.AutowiredOptions;
+import com.aaudin.springboottutorial.component.ComponentWithValuesFromConfig;
 import com.aaudin.springboottutorial.model.Person;
 import com.aaudin.springboottutorial.model.response.BaseResponse;
+import com.aaudin.springboottutorial.model.response.ColorListResponse;
 import com.aaudin.springboottutorial.service.BeanScopeTesterService;
+import com.aaudin.springboottutorial.service.ColorService;
 import com.aaudin.springboottutorial.service.PersonService;
 import com.aaudin.springboottutorial.service.PetService;
 
@@ -37,6 +42,12 @@ public class TutorialController {
 	
 	@Autowired
 	private AutowiredOptions autowiredOptions;
+	
+	@Autowired
+	private ComponentWithValuesFromConfig componentWithValuesFromConfig;
+	
+	@Autowired
+	private ColorService colorService;
 
 	@GetMapping("/person/{firstname}/{lastname}")
 	public Person createPerson(@PathVariable("firstname") String firstname, @PathVariable("lastname") String lastname) {
@@ -94,6 +105,18 @@ public class TutorialController {
 	@GetMapping("/autowiringOptions")
 	public BaseResponse testAutowiringOptions() {
 		return new BaseResponse(autowiredOptions.sumCounts().toString());
+	}
+	
+	@GetMapping("/valueFromConfig")
+	public BaseResponse loadValueFromConfig() {
+		String valueFromConfig = componentWithValuesFromConfig.getValue();
+		return new BaseResponse(valueFromConfig);
+	}
+	
+	@GetMapping("/colors")
+	private ColorListResponse loadColors() {
+		List<String> colors = colorService.retrieveColors();
+		return new ColorListResponse(colors);
 	}
 
 }
