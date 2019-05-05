@@ -13,10 +13,12 @@ import com.aaudin.springboottutorial.component.ComponentWithValuesFromConfig;
 import com.aaudin.springboottutorial.model.Person;
 import com.aaudin.springboottutorial.model.response.BaseResponse;
 import com.aaudin.springboottutorial.model.response.ColorListResponse;
+import com.aaudin.springboottutorial.model.response.UserResponse;
 import com.aaudin.springboottutorial.service.BeanScopeTesterService;
 import com.aaudin.springboottutorial.service.ColorService;
 import com.aaudin.springboottutorial.service.PersonService;
 import com.aaudin.springboottutorial.service.PetService;
+import com.aaudin.springboottutorial.service.UserService;
 
 @RestController
 public class TutorialController {
@@ -48,6 +50,9 @@ public class TutorialController {
 	
 	@Autowired
 	private ColorService colorService;
+	
+	@Autowired
+	private UserService userService;
 
 	@GetMapping("/person/{firstname}/{lastname}")
 	public Person createPerson(@PathVariable("firstname") String firstname, @PathVariable("lastname") String lastname) {
@@ -117,6 +122,11 @@ public class TutorialController {
 	private ColorListResponse loadColors() {
 		List<String> colors = colorService.retrieveColors();
 		return new ColorListResponse(colors);
+	}
+	
+	@GetMapping("/user")
+	private UserResponse retrieveUser() {
+		return userService.retrieveUser();
 	}
 
 }

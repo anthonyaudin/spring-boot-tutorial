@@ -15,13 +15,10 @@ Section 9 - Testing our application
 
 To run your application, using the command line just go to your project root and run: mvn spring-boot:run
 
-Section 5:
+Section 6:
 
-Printing property injected during the bean creating:
-http://localhost:8080/valueFromConfig
-
-Printing the list of colors loaded from the application properties file:
-http://localhost:8080/colors
+Retrieving the remote user using RestTempate
+http://localhost:8080/user
 
 
 

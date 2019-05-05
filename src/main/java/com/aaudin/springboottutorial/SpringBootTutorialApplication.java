@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import com.aaudin.springboottutorial.component.ComponentWithValuesFromConfig;
 import com.aaudin.springboottutorial.service.BeanScopeTesterService;
@@ -32,6 +33,11 @@ public class SpringBootTutorialApplication {
 	@Bean("beanScopeTesterService2")
 	public BeanScopeTesterService beanScopeTesterService2() {
 		return new BeanScopeTesterServiceImpl();
+	}
+	
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
 	}
 	
 }
