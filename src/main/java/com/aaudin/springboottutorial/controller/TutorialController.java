@@ -14,7 +14,7 @@ public class TutorialController {
 	@Autowired
 	private PersonService personService;
 
-	@GetMapping("person/{firstname}/{lastname}")
+	@GetMapping("/person/{firstname}/{lastname}")
 	public Person createPerson (@PathVariable("firstname") String firstname, @PathVariable("lastname") String lastname) {
 		final Person person = personService.createPerson(firstname, lastname);
 		return person;
