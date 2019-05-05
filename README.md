@@ -17,9 +17,27 @@ To run your application, using the command line just go to your project root and
 
 Section 3:
 
-To test this section simply use curl to call your enpoint:
+To test this section use your browser to call your enpoint:
 
-curl http://localhost:8080/person/John/Doe
+Testing of the @Qualifier annotation
+http://localhost:8080/dog
+http://localhost:8080/cat
+
+Checking that dependencies can be injected through field, constructor or setter:
+curl http://localhost:8080/autowiringOptions
+
+Testing of scope differences:
+
+Singleton scope difference, notice that the 2 different BeanScopeServiceTester beans resolve to the same SingletonComponent as incrementing the value for one service also increments it for the other one. (beanScopeTesterService2 is always 1 bigger than beanScopeTesterService1)
+http://localhost:8080/singletonScopeDifference
+
+Prototype scope difference, notice that the 2 different BeanScopeServiceTester beans resolve to 2 different PrototypeComponent as incrementing the value for one service does not increment it for the other one. (beanScopeTesterService1 is always equal to beanScopeTesterService2)
+http://localhost:8080/prototypeScopeDifference
+
+Session scope difference, acts the same as Singleton scope bean for a single session. Notice similar results compared to singleton scope bean. Then call the same url using curl and notice that the values are different as curl created a different session 
+http://localhost:8080/sessionScopeDifference
+
+
 
 
 
