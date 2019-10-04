@@ -15,10 +15,10 @@ Section 9 - Testing our application\
 
 To run your application, using the command line just go to your project root and run `mvn spring-boot:run`
 
-Section 6:
+### Section 6
 
-Retrieving the remote user using RestTempate\
-http://localhost:8080/user
+Retrieving the remote user using RestTempate
+> curl http://localhost:8080/user
 
 
 
