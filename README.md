@@ -15,7 +15,7 @@ Section 9 - Testing our application
 
 To run your application, using the command line just go to your project root and run `mvn spring-boot:run`
 
-Section 2:
+### Section 2
 
 To test this section simply use curl to call your endpoints
 
