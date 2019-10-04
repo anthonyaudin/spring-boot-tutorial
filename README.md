@@ -26,7 +26,7 @@ To call getWithPathParam(..)
 curl http://localhost:8080/12
 
 To call basicGetWithHeader(..)
-curl -H "name: Foo" http://localhost:8080
+curl -H "name: Foo" http://localhost:8080/withHeader
 
 To call postWithRequest(..)
 curl -d '{"firstname":"John", "lastname":"Doe"}' -H "Content-Type: application/json" -X POST http://localhost:8080
