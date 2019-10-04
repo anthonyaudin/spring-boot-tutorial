@@ -11,6 +11,6 @@ Section 5 - Injecting values from a configuration file\
 Section 6 - Calling a remote web service\
 Section 7 - Interacting with a database using spring data\
 Section 8 - Exception handling\
-Section 9 - Testing our application\
+Section 9 - Testing our application
 
 To run your application, using the command line just go to your project root and run: `mvn spring-boot:run`
