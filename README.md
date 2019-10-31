@@ -14,3 +14,6 @@ Section 8 - Exception handling\
 Section 9 - Testing our application
 
 To run your application, using the command line just go to your project root and run `mvn spring-boot:run`
+To check that the server started successfully, using curl or your browser, send a GET request to *http://localhost:8080/actuator/health*. The server will return 
+
+	{ "status": "UP" }
